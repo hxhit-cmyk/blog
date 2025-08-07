@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系方式 - 我的博客</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 联系页面特定样式 */
+        .contact-section {
+            padding: 80px 0;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info h2 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: #333;
+        }
+        
+        .contact-info p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f0f5ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .contact-icon img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .contact-details h3 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-details p {
+            margin-bottom: 0;
+            color: #666;
+        }
+        
+        .contact-form h2 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: #333;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #004080;
+        }
+        
+        .social-connect {
+            margin-top: 40px;
+        }
+        
+        .social-connect h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #f0f5ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: #0066cc;
+        }
+        
+        .social-icons img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                order: 2;
+            }
+            
+            .contact-info {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>我的博客</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="posts.html">文章</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                    <li><a href="contact.html">联系方式</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>联系我</h2>
+                <p>有任何问题或合作意向，欢迎随时联系我</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>联系信息</h2>
+                        <p>如果您有任何问题、建议或合作意向，可以通过以下方式联系我。我会尽快回复您的消息。</p>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <img src="images/icon-email.svg" alt="邮箱">
+                            </div>
+                            <div class="contact-details">
+                                <h3>邮箱</h3>
+                                <p>example@myblog.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <img src="images/icon-wechat.svg" alt="微信">
+                            </div>
+                            <div class="contact-details">
+                                <h3>微信</h3>
+                                <p>myblog_wechat</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <img src="images/icon-location.svg" alt="位置">
+                            </div>
+                            <div class="contact-details">
+                                <h3>位置</h3>
+                                <p>中国，北京</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-connect">
+                            <h3>社交媒体</h3>
+                            <div class="social-icons">
+                                <a href="#"><img src="images/icon-facebook.svg" alt="Facebook"></a>
+                                <a href="#"><img src="images/icon-twitter.svg" alt="Twitter"></a>
+                                <a href="#"><img src="images/icon-instagram.svg" alt="Instagram"></a>
+                                <a href="#"><img src="images/icon-linkedin.svg" alt="LinkedIn"></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h2>发送消息</h2>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">邮箱</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">主题</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">消息</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">发送消息</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>关于本站</h3>
+                    <p>这是我的个人博客，用于分享我的想法、经验和生活点滴。</p>
+                    <div class="social-links">
+                        <a href="#"><img src="images/icon-facebook.svg" alt="Facebook"></a>
+                        <a href="#"><img src="images/icon-twitter.svg" alt="Twitter"></a>
+                        <a href="#"><img src="images/icon-instagram.svg" alt="Instagram"></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="posts.html">文章</a></li>
+                        <li><a href="about.html">关于我</a></li>
+                        <li><a href="contact.html">联系方式</a></li>
+                        <li><a href="privacy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>联系我</h3>
+                    <p><span>邮箱:</span> example@myblog.com</p>
+                    <p><span>微信:</span> myblog_wechat</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 我的博客. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 处理联系表单提交
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // 获取表单数据
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const subject = document.getElementById('subject').value.trim();
+                    const message = document.getElementById('message').value.trim();
+                    
+                    // 在实际应用中，这里应该发送AJAX请求到服务器
+                    // 这里我们只是模拟一个成功的提交
+                    
+                    // 清空表单
+                    contactForm.reset();
+                    
+                    // 创建并显示成功消息
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'success-message';
+                    successMessage.textContent = '您的消息已成功发送！我会尽快回复您。';
+                    successMessage.style.color = '#0066cc';
+                    successMessage.style.marginTop = '20px';
+                    successMessage.style.padding = '15px';
+                    successMessage.style.backgroundColor = '#f0f5ff';
+                    successMessage.style.borderRadius = '4px';
+                    successMessage.style.fontWeight = 'bold';
+                    
+                    // 检查是否已经有成功消息，如果有则移除
+                    const existingMessage = contactForm.nextElementSibling;
+                    if (existingMessage && existingMessage.className === 'success-message') {
+                        existingMessage.remove();
+                    }
+                    
+                    contactForm.after(successMessage);
+                    
+                    // 5秒后移除成功消息
+                    setTimeout(function() {
+                        successMessage.style.opacity = '0';
+                        successMessage.style.transition = 'opacity 0.5s ease';
+                        
+                        setTimeout(function() {
+                            successMessage.remove();
+                        }, 500);
+                    }, 5000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

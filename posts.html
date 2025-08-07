@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章列表 - 我的博客</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 文章列表页面特定样式 */
+        .posts-section {
+            padding: 80px 0;
+        }
+        
+        .posts-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .posts-header h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .posts-header p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .posts-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-button {
+            background: none;
+            border: none;
+            padding: 8px 15px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #666;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-button:hover {
+            color: #0066cc;
+        }
+        
+        .filter-button.active {
+            background-color: #0066cc;
+            color: #fff;
+        }
+        
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .post-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .post-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .post-content {
+            padding: 20px;
+        }
+        
+        .post-category {
+            display: inline-block;
+            background-color: #f0f5ff;
+            color: #0066cc;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .post-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .post-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .post-excerpt {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: #0066cc;
+            font-weight: 500;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        
+        .pagination-button {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: #fff;
+            color: #333;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-button:hover {
+            background-color: #f0f5ff;
+            color: #0066cc;
+        }
+        
+        .pagination-button.active {
+            background-color: #0066cc;
+            color: #fff;
+        }
+        
+        .pagination-button.prev,
+        .pagination-button.next {
+            width: auto;
+            padding: 0 15px;
+            border-radius: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .posts-section {
+                padding: 60px 0;
+            }
+            
+            .posts-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>我的博客</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="posts.html">文章</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                    <li><a href="contact.html">联系方式</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>博客文章</h2>
+                <p>探索我的所有文章和思考</p>
+            </div>
+        </section>
+
+        <section class="posts-section">
+            <div class="container">
+                <div class="posts-header">
+                    <h2>所有文章</h2>
+                    <p>这里收集了我所有的博客文章，包括技术分享、生活感悟和读书笔记等。</p>
+                </div>
+                
+                <div class="posts-filter">
+                    <button class="filter-button active" data-category="all">全部</button>
+                    <button class="filter-button" data-category="tech">技术</button>
+                    <button class="filter-button" data-category="life">生活</button>
+                    <button class="filter-button" data-category="reading">读书</button>
+                    <button class="filter-button" data-category="travel">旅行</button>
+                </div>
+                
+                <div class="posts-grid">
+                    <article class="post-card" data-category="tech">
+                        <div class="post-image" style="background-image: url('images/post1.jpg');"></div>
+                        <div class="post-content">
+                            <span class="post-category">技术</span>
+                            <h3><a href="post1.html">如何提高工作效率</a></h3>
+                            <p class="post-date">2023年12月15日</p>
+                            <p class="post-excerpt">在这篇文章中，我分享了一些提高日常工作效率的实用技巧...</p>
+                            <a href="post1.html" class="read-more">阅读更多</a>
+                        </div>
+                    </article>
+
+                    <article class="post-card" data-category="travel">
+                        <div class="post-image" style="background-image: url('images/post2.jpg');"></div>
+                        <div class="post-content">
+                            <span class="post-category">旅行</span>
+                            <h3><a href="post2.html">旅行中的意外收获</a></h3>
+                            <p class="post-date">2023年11月20日</p>
+                            <p class="post-excerpt">上个月我去了一次短途旅行，遇到了一些意想不到的事情...</p>
+                            <a href="post2.html" class="read-more">阅读更多</a>
+                        </div>
+                    </article>
+
+                    <article class="post-card" data-category="reading">
+                        <div class="post-image" style="background-image: url('images/post3.jpg');"></div>
+                        <div class="post-content">
+                            <span class="post-category">读书</span>
+                            <h3><a href="post3.html">我最近读过的五本好书</a></h3>
+                            <p class="post-date">2023年10月5日</p>
+                            <p class="post-excerpt">这些书改变了我的思考方式，推荐给所有喜欢阅读的朋友...</p>
+                            <a href="post3.html" class="read-more">阅读更多</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card" data-category="tech">
+                        <div class="post-image" style="background-image: url('images/post4.jpg');"></div>
+                        <div class="post-content">
+                            <span class="post-category">技术</span>
+                            <h3><a href="post4.html">初学者的编程指南</a></h3>
+                            <p class="post-date">2023年9月18日</p>
+                            <p class="post-excerpt">如果你想开始学习编程，这篇文章将帮助你选择合适的语言和学习路径...</p>
+                            <a href="post4.html" class="read-more">阅读更多</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card" data-category="life">
+                        <div class="post-image" style="background-image: url('images/post5.jpg');"></div>
+                        <div class="post-content">
+                            <span class="post-category">生活</span>
+                            <h3><a href="post5.html">保持健康的生活习惯</a></h3>
+                            <p class="post-date">2023年8月30日</p>
+                            <p class="post-excerpt">这些简单的生活习惯可以帮助你保持身心健康，提高生活质量...</p>
+                            <a href="post5.html" class="read-more">阅读更多</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card" data-category="reading">
+                        <div class="post-image" style="background-image: url('images/post6.jpg');"></div>
+                        <div class="post-content">
+                            <span class="post-category">读书</span>
+                            <h3><a href="post6.html">经典文学作品的现代意义</a></h3>
+                            <p class="post-date">2023年8月12日</p>
+                            <p class="post-excerpt">为什么经典文学作品在今天仍然具有重要意义？这篇文章探讨了这个问题...</p>
+                            <a href="post6.html" class="read-more">阅读更多</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card" data-category="travel">
+                        <div class="post-image" style="background-image: url('images/post7.jpg');"></div>
+                        <div class="post-content">
+                            <span class="post-category">旅行</span>
+                            <h3><a href="post7.html">背包旅行的实用建议</a></h3>
+                            <p class="post-date">2023年7月25日</p>
+                            <p class="post-excerpt">如何用最少的行李获得最好的旅行体验？这里有一些实用的建议...</p>
+                            <a href="post7.html" class="read-more">阅读更多</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card" data-category="tech">
+                        <div class="post-image" style="background-image: url('images/post8.jpg');"></div>
+                        <div class="post-content">
+                            <span class="post-category">技术</span>
+                            <h3><a href="post8.html">人工智能的未来发展</a></h3>
+                            <p class="post-date">2023年7月10日</p>
+                            <p class="post-excerpt">人工智能技术正在快速发展，这篇文章探讨了它可能的未来发展方向...</p>
+                            <a href="post8.html" class="read-more">阅读更多</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card" data-category="life">
+                        <div class="post-image" style="background-image: url('images/post9.jpg');"></div>
+                        <div class="post-content">
+                            <span class="post-category">生活</span>
+                            <h3><a href="post9.html">简约生活的艺术</a></h3>
+                            <p class="post-date">2023年6月22日</p>
+                            <p class="post-excerpt">如何通过减少物质占有来获得更多的内心平静和满足感...</p>
+                            <a href="post9.html" class="read-more">阅读更多</a>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="pagination">
+                    <a href="#" class="pagination-button prev">上一页</a>
+                    <a href="#" class="pagination-button active">1</a>
+                    <a href="#" class="pagination-button">2</a>
+                    <a href="#" class="pagination-button">3</a>
+                    <a href="#" class="pagination-button next">下一页</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="container">
+                <h2>订阅我的博客</h2>
+                <p>获取最新文章和更新</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="输入您的邮箱地址" required>
+                    <button type="submit">订阅</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>关于本站</h3>
+                    <p>这是我的个人博客，用于分享我的想法、经验和生活点滴。</p>
+                    <div class="social-links">
+                        <a href="#"><img src="images/icon-facebook.svg" alt="Facebook"></a>
+                        <a href="#"><img src="images/icon-twitter.svg" alt="Twitter"></a>
+                        <a href="#"><img src="images/icon-instagram.svg" alt="Instagram"></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="posts.html">文章</a></li>
+                        <li><a href="about.html">关于我</a></li>
+                        <li><a href="contact.html">联系方式</a></li>
+                        <li><a href="privacy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>联系我</h3>
+                    <p><span>邮箱:</span> example@myblog.com</p>
+                    <p><span>微信:</span> myblog_wechat</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 我的博客. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 文章分类筛选功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const postCards = document.querySelectorAll('.post-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 移除所有按钮的active类
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // 为当前点击的按钮添加active类
+                    this.classList.add('active');
+                    
+                    // 获取当前选中的分类
+                    const selectedCategory = this.getAttribute('data-category');
+                    
+                    // 显示或隐藏文章卡片
+                    postCards.forEach(card => {
+                        if (selectedCategory === 'all' || card.getAttribute('data-category') === selectedCategory) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // 分页功能（简单模拟）
+            const paginationButtons = document.querySelectorAll('.pagination-button');
+            
+            paginationButtons.forEach(button => {
+                if (!button.classList.contains('prev') && !button.classList.contains('next')) {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // 移除所有按钮的active类
+                        paginationButtons.forEach(btn => {
+                            if (!btn.classList.contains('prev') && !btn.classList.contains('next')) {
+                                btn.classList.remove('active');
+                            }
+                        });
+                        
+                        // 为当前点击的按钮添加active类
+                        this.classList.add('active');
+                        
+                        // 在实际应用中，这里应该加载对应页面的文章
+                        // 这里只是简单模拟
+                        window.scrollTo({
+                            top: document.querySelector('.posts-section').offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

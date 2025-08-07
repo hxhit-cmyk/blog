@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何提高工作效率 - 我的博客</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 文章页面特定样式 */
+        .post-header {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        
+        .post-header .container {
+            max-width: 800px;
+        }
+        
+        .post-category {
+            display: inline-block;
+            background-color: #f0f5ff;
+            color: #0066cc;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .post-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .post-meta {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .post-meta span {
+            margin: 0 10px;
+        }
+        
+        .post-featured-image {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .post-content-section {
+            padding: 60px 0;
+        }
+        
+        .post-content-section .container {
+            max-width: 800px;
+        }
+        
+        .post-content-wrapper {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .post-content-wrapper p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .post-content-wrapper h2 {
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+            color: #333;
+        }
+        
+        .post-content-wrapper h3 {
+            margin: 30px 0 15px;
+            font-size: 1.4rem;
+            color: #333;
+        }
+        
+        .post-content-wrapper ul,
+        .post-content-wrapper ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .post-content-wrapper li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .post-content-wrapper blockquote {
+            border-left: 4px solid #0066cc;
+            padding: 15px 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .post-content-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .post-content-wrapper code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        
+        .post-content-wrapper pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .post-content-wrapper pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        .post-tags {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .post-tags span {
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: #f0f5ff;
+            color: #0066cc;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .post-share {
+            margin-top: 30px;
+        }
+        
+        .post-share span {
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        
+        .share-buttons {
+            display: inline-block;
+        }
+        
+        .share-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: #f0f5ff;
+            border-radius: 50%;
+            margin-right: 8px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .share-button:hover {
+            background-color: #0066cc;
+        }
+        
+        .share-button img {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .author-section {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .author-info p {
+            margin-bottom: 10px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .author-social a {
+            display: inline-block;
+            margin-right: 10px;
+            color: #0066cc;
+        }
+        
+        .related-posts {
+            margin-top: 60px;
+        }
+        
+        .related-posts h3 {
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .related-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .comments-section {
+            margin-top: 60px;
+        }
+        
+        .comments-section h3 {
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+        }
+        
+        .comment {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comment:last-child {
+            border-bottom: none;
+        }
+        
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .comment-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .comment-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .comment-meta h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .comment-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .comment-content p {
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .comment-reply {
+            margin-top: 10px;
+        }
+        
+        .comment-reply a {
+            color: #0066cc;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .comment-form {
+            margin-top: 40px;
+        }
+        
+        .comment-form h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #004080;
+        }
+        
+        @media (max-width: 768px) {
+            .post-header {
+                padding: 40px 0;
+            }
+            
+            .post-title {
+                font-size: 2rem;
+            }
+            
+            .post-featured-image {
+                height: 300px;
+            }
+            
+            .post-content-wrapper {
+                padding: 25px;
+            }
+            
+            .related-posts-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .author-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-image {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>我的博客</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="posts.html">文章</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                    <li><a href="contact.html">联系方式</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="post-header">
+            <div class="container">
+                <span class="post-category">技术</span>
+                <h1 class="post-title">如何提高工作效率</h1>
+                <div class="post-meta">
+                    <span>发布于: 2023年12月15日</span>
+                    <span>阅读时间: 10分钟</span>
+                    <span>作者: 博主</span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="post-content-section">
+            <div class="container">
+                <div class="post-featured-image" style="background-image: url('images/post1.jpg');"></div>
+                
+                <div class="post-content-wrapper">
+                    <p>在当今快节奏的工作环境中，提高工作效率已经成为每个人都需要面对的挑战。无论你是一名程序员、设计师、作家还是企业管理者，合理利用时间和资源，以最高效的方式完成工作，都能让你在职场中脱颖而出。</p>
+                    
+                    <p>本文将分享一些经过实践检验的方法，帮助你提高工作效率，减少压力，并在工作与生活之间取得更好的平衡。</p>
+                    
+                    <h2>1. 制定明确的目标和计划</h2>
+                    
+                    <p>每天开始工作前，花5-10分钟制定当天的工作计划是非常值得的投资。明确你需要完成的任务，并按照优先级排序。</p>
+                    
+                    <p>我个人喜欢使用"3-3-3"法则：</p>
+                    
+                    <ul>
+                        <li>3个必须完成的重要任务</li>
+                        <li>3个如果有时间应该完成的任务</li>
+                        <li>3个可以推迟到明天的任务</li>
+                    </ul>
+                    
+                    <p>这种方法可以帮助你集中精力在最重要的事情上，避免被琐碎的工作分散注意力。</p>
+                    
+                    <h2>2. 应用番茄工作法</h2>
+                    
+                    <p>番茄工作法是一种简单而有效的时间管理技术。它的基本原理是：</p>
+                    
+                    <ol>
+                        <li>选择一项任务</li>
+                        <li>设置计时器（通常为25分钟）</li>
+                        <li>专注工作直到计时器响起</li>
+                        <li>短暂休息（5分钟）</li>
+                        <li>每完成四个"番茄钟"，休息较长时间（15-30分钟）</li>
+                    </ol>
+                    
+                    <p>这种方法利用了人类大脑的工作规律，通过短时间的高度专注和适当的休息，可以保持较长时间的高效工作状态。</p>
+                    
+                    <blockquote>
+                        "工作效率不在于你工作了多长时间，而在于你如何利用这些时间。" — 亚伦·戴维斯
+                    </blockquote>
+                    
+                    <h2>3. 减少干扰和多任务处理</h2>
+                    
+                    <p>研究表明，当我们被打断工作后，平均需要23分钟才能重新进入专注状态。因此，减少工作中的干扰至关重要。</p>
+                    
+                    <p>以下是一些减少干扰的方法：</p>
+                    
+                    <ul>
+                        <li>将手机设置为勿扰模式或放在视线之外</li>
+                        <li>关闭电子邮件和社交媒体通知</li>
+                        <li>使用耳机（即使不听音乐）也能发出"请勿打扰"的信号</li>
+                        <li>设定特定的时间查看邮件和消息，而不是随时响应</li>
+                    </ul>
+                    
+                    <p>同时，避免同时处理多项任务。虽然多任务处理看起来很高效，但实际上会降低每项任务的完成质量，并增加出错的可能性。</p>
+                    
+                    <h2>4. 利用工具和自动化</h2>
+                    
+                    <p>现代科技提供了许多提高效率的工具。根据你的工作性质，可以考虑以下工具：</p>
+                    
+                    <ul>
+                        <li><strong>项目管理工具</strong>：Trello, Asana, Monday.com</li>
+                        <li><strong>笔记和知识管理</strong>：Notion, Evernote, OneNote</li>
+                        <li><strong>自动化工具</strong>：Zapier, IFTTT, Microsoft Power Automate</li>
+                        <li><strong>专注和时间跟踪</strong>：Forest, RescueTime, Toggl</li>
+                    </ul>
+                    
+                    <p>花时间学习这些工具，并将重复性工作自动化，长期来看会节省大量时间。</p>
+                    
+                    <h2>5. 保持工作环境整洁</h2>
+                    
+                    <p>一个整洁、有组织的工作环境可以减少分心，提高专注力。定期整理你的物理和数字工作空间：</p>
+                    
+                    <ul>
+                        <li>保持桌面整洁，只放置当前工作需要的物品</li>
+                        <li>组织电脑文件，使用清晰的文件夹结构</li>
+                        <li>定期清理邮箱和数字存储空间</li>
+                    </ul>
+                    
+                    <h2>6. 注意身心健康</h2>
+                    
+                    <p>最后，但同样重要的是，保持良好的身心健康对工作效率至关重要。确保：</p>
+                    
+                    <ul>
+                        <li>充足的睡眠（7-8小时）</li>
+                        <li>健康的饮食习惯</li>
+                        <li>定期锻炼</li>
+                        <li>适当的休息和放松</li>
+                    </ul>
+                    
+                    <p>记住，工作效率不是关于如何工作更长时间，而是如何在有限的时间内完成更多有价值的工作。</p>
+                    
+                    <h2>总结</h2>
+                    
+                    <p>提高工作效率是一个持续的过程，需要不断尝试和调整。以上方法可能不会立即显著改变你的工作方式，但如果坚持实践，你会逐渐发现自己能够更轻松地完成更多工作，同时保持更好的工作生活平衡。</p>
+                    
+                    <p>你有什么提高工作效率的秘诀吗？欢迎在评论区分享你的经验和想法！</p>
+                    
+                    <div class="post-tags">
+                        <span>标签:</span>
+                        <a href="#" class="tag">工作效率</a>
+                        <a href="#" class="tag">时间管理</a>
+                        <a href="#" class="tag">职场技巧</a>
+                        <a href="#" class="tag">自我提升</a>
+                    </div>
+                    
+                    <div class="post-share">
+                        <span>分享:</span>
+                        <div class="share-buttons">
+                            <a href="#" class="share-button"><img src="images/icon-facebook.svg" alt="Facebook"></a>
+                            <a href="#" class="share-button"><img src="images/icon-twitter.svg" alt="Twitter"></a>
+                            <a href="#" class="share-button"><img src="images/icon-linkedin.svg" alt="LinkedIn"></a>
+                            <a href="#" class="share-button"><img src="images/icon-wechat.svg" alt="WeChat"></a>
+                        </div>
+                    </div>
+                    
+                    <div class="author-section">
+                        <div class="author-image">
+                            <img src="images/profile.jpg" alt="作者头像">
+                        </div>
+                        <div class="author-info">
+                            <h3>关于作者</h3>
+                            <p>博主是一名[职业]，热爱分享关于[兴趣领域]的知识和经验。平时喜欢[爱好]，同时也是[组织或社区]的活跃成员。</p>
+                            <div class="author-social">
+                                <a href="#">更多文章</a>
+                                <a href="#">个人主页</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="related-posts">
+                        <h3>你可能也喜欢</h3>
+                        <div class="related-posts-grid">
+                            <article class="post-card">
+                                <div class="post-image" style="background-image: url('images/post4.jpg');"></div>
+                                <div class="post-content">
+                                    <span class="post-category">技术</span>
+                                    <h3><a href="post4.html">初学者的编程指南</a></h3>
+                                    <p class="post-date">2023年9月18日</p>
+                                    <a href="post4.html" class="read-more">阅读更多</a>
+                                </div>
+                            </article>
+                            
+                            <article class="post-card">
+                                <div class="post-image" style="background-image: url('images/post5.jpg');"></div>
+                                <div class="post-content">
+                                    <span class="post-category">生活</span>
+                                    <h3><a href="post5.html">保持健康的生活习惯</a></h3>
+                                    <p class="post-date">2023年8月30日</p>
+                                    <a href="post5.html" class="read-more">阅读更多</a>
+                                </div>
+                            </article>
+                            
+                            <article class="post-card">
+                                <div class="post-image" style="background-image: url('images/post8.jpg');"></div>
+                                <div class="post-content">
+                                    <span class="post-category">技术</span>
+                                    <h3><a href="post8.html">人工智能的未来发展</a></h3>
+                                    <p class="post-date">2023年7月10日</p>
+                                    <a href="post8.html" class="read-more">阅读更多</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    
+                    <div class="comments-section">
+                        <h3>评论 (3)</h3>
+                        
+                        <div class="comment">
+                            <div class="comment-header">
+                                <div class="comment-avatar">
+                                    <img src="images/avatar1.jpg" alt="评论者头像">
+                                </div>
+                                <div class="comment-meta">
+                                    <h4>张明</h4>
+                                    <div class="comment-date">2023年12月16日</div>
+                                </div>
+                            </div>
+                            <div class="comment-content">
+                                <p>非常实用的文章！我最近一直在尝试番茄工作法，确实很有效。特别是对于需要长时间专注的工作，分成小段后感觉压力小了很多。</p>
+                            </div>
+                            <div class="comment-reply">
+                                <a href="#">回复</a>
+                            </div>
+                        </div>
+                        
+                        <div class="comment">
+                            <div class="comment-header">
+                                <div class="comment-avatar">
+                                    <img src="images/avatar2.jpg" alt="评论者头像">
+                                </div>
+                                <div class="comment-meta">
+                                    <h4>李华</h4>
+                                    <div class="comment-date">2023年12月17日</div>
+                                </div>
+                            </div>
+                            <div class="comment-content">
+                                <p>我想补充一点，对于需要创造性思维的工作，适当的休息和放松反而能激发灵感。有时候刻意放下工作，去散步或做些其他事情，回来后反而能有新的想法。</p>
+                            </div>
+                            <div class="comment-reply">
+                                <a href="#">回复</a>
+                            </div>
+                        </div>
+                        
+                        <div class="comment">
+                            <div class="comment-header">
+                                <div class="comment-avatar">
+                                    <img src="images/avatar3.jpg" alt="评论者头像">
+                                </div>
+                                <div class="comment-meta">
+                                    <h4>王芳</h4>
+                                    <div class="comment-date">2023年12月18日</div>
+                                </div>
+                            </div>
+                            <div class="comment-content">
+                                <p>文章中提到的工具很有帮助。我个人使用Notion来管理项目和笔记，真的改变了我的工作方式。推荐大家尝试一下，找到适合自己的工具很重要。</p>
+                            </div>
+                            <div class="comment-reply">
+                                <a href="#">回复</a>
+                            </div>
+                        </div>
+                        
+                        <div class="comment-form">
+                            <h3>发表评论</h3>
+                            <form id="comment-form">
+                                <div class="form-group">
+                                    <label for="comment-name">姓名</label>
+                                    <input type="text" id="comment-name" name="name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="comment-email">邮箱 (不会公开)</label>
+                                    <input type="email" id="comment-email" name="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="comment-content">评论内容</label>
+                                    <textarea id="comment-content" name="content" required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="submit-btn">提交评论</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="container">
+                <h2>订阅我的博客</h2>
+                <p>获取最新文章和更新</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="输入您的邮箱地址" required>
+                    <button type="submit">订阅</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>关于本站</h3>
+                    <p>这是我的个人博客，用于分享我的想法、经验和生活点滴。</p>
+                    <div class="social-links">
+                        <a href="#"><img src="images/icon-facebook.svg" alt="Facebook"></a>
+                        <a href="#"><img src="images/icon-twitter.svg" alt="Twitter"></a>
+                        <a href="#"><img src="images/icon-instagram.svg" alt="Instagram"></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="posts.html">文章</a></li>
+                        <li><a href="about.html">关于我</a></li>
+                        <li><a href="contact.html">联系方式</a></li>
+                        <li><a href="privacy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>联系我</h3>
+                    <p><span>邮箱:</span> example@myblog.com</p>
+                    <p><span>微信:</span> myblog_wechat</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 我的博客. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 处理评论表单提交
+        document.addEventListener('DOMContentLoaded', function() {
+            const commentForm = document.getElementById('comment-form');
+            
+            if (commentForm) {
+                commentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // 获取表单数据
+                    const name = document.getElementById('comment-name').value.trim();
+                    const email = document.getElementById('comment-email').value.trim();
+                    const content = document.getElementById('comment-content').value.trim();
+                    
+                    // 在实际应用中，这里应该发送AJAX请求到服务器
+                    // 这里我们只是模拟一个成功的提交
+                    
+                    // 创建新评论元素
+                    const newComment = document.createElement('div');
+                    newComment.className = 'comment';
+                    newComment.innerHTML = `
+                        <div class="comment-header">
+                            <div class="comment-avatar">
+                                <img src="images/avatar-default.jpg" alt="评论者头像">
+                            </div>
+                            <div class="comment-meta">
+                                <h4>${name}</h4>
+                                <div class="comment-date">刚刚</div>
+                            </div>
+                        </div>
+                        <div class="comment-content">
+                            <p>${content}</p>
+                        </div>
+                        <div class="comment-reply">
+                            <a href="#">回复</a>
+                        </div>
+                    `;
+                    
+                    // 添加新评论到评论列表
+                    const commentsSection = document.querySelector('.comments-section');
+                    commentsSection.insertBefore(newComment, commentForm.parentNode);
+                    
+                    // 更新评论数量
+                    const commentsTitle = commentsSection.querySelector('h3');
+                    const currentCount = parseInt(commentsTitle.textContent.match(/\d+/)[0]);
+                    commentsTitle.textContent = `评论 (${currentCount + 1})`;
+                    
+                    // 清空表单
+                    commentForm.reset();
+                    
+                    // 显示成功消息
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'success-message';
+                    successMessage.textContent = '评论已成功提交！';
+                    successMessage.style.color = '#0066cc';
+                    successMessage.style.marginTop = '15px';
+                    successMessage.style.fontWeight = 'bold';
+                    
+                    // 检查是否已经有成功消息，如果有则移除
+                    const existingMessage = commentForm.nextElementSibling;
+                    if (existingMessage && existingMessage.className === 'success-message') {
+                        existingMessage.remove();
+                    }
+                    
+                    commentForm.after(successMessage);
+                    
+                    // 3秒后移除成功消息
+                    setTimeout(function() {
+                        successMessage.style.opacity = '0';
+                        successMessage.style.transition = 'opacity 0.5s ease';
+                        
+                        setTimeout(function() {
+                            successMessage.remove();
+                        }, 500);
+                    }, 3000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

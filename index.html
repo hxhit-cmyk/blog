@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的博客</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.svg" alt="我的博客">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="posts.html">文章</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                    <li><a href="contact.html">联系方式</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-nav-toggle">
+                <img src="images/icon-menu.svg" alt="菜单" class="menu-icon">
+                <img src="images/icon-close.svg" alt="关闭" class="close-icon">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="background-image: url('images/hero-bg.svg');">
+            <div class="container">
+                <h2>欢迎来到我的博客</h2>
+                <p>这里记录我的思考、学习和生活</p>
+            </div>
+        </section>
+
+        <section class="featured-posts">
+            <div class="container">
+                <h2>精选文章</h2>
+                <div class="posts-grid">
+                    <article class="post-card">
+                        <div class="post-image" style="background-image: url('images/featured-1.svg');"></div>
+                        <div class="post-content">
+                            <h3><a href="post1.html">如何提高工作效率</a></h3>
+                            <p class="post-date">2023年12月15日</p>
+                            <p class="post-excerpt">在这篇文章中，我分享了一些提高日常工作效率的实用技巧...</p>
+                            <a href="post1.html" class="read-more">阅读更多</a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-image" style="background-image: url('images/featured-2.svg');"></div>
+                        <div class="post-content">
+                            <h3><a href="post2.html">旅行中的意外收获</a></h3>
+                            <p class="post-date">2023年11月20日</p>
+                            <p class="post-excerpt">上个月我去了一次短途旅行，遇到了一些意想不到的事情...</p>
+                            <a href="post2.html" class="read-more">阅读更多</a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-image" style="background-image: url('images/featured-3.svg');"></div>
+                        <div class="post-content">
+                            <h3><a href="post3.html">我最近读过的五本好书</a></h3>
+                            <p class="post-date">2023年10月5日</p>
+                            <p class="post-excerpt">这些书改变了我的思考方式，推荐给所有喜欢阅读的朋友...</p>
+                            <a href="post3.html" class="read-more">阅读更多</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="container">
+                <h2>订阅我的博客</h2>
+                <p>获取最新文章和更新</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="输入您的邮箱地址" required>
+                    <button type="submit">订阅</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- 返回顶部按钮 -->
+    <a href="#" class="back-to-top">
+        <img src="images/icon-arrow-up.svg" alt="返回顶部">
+    </a>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>关于本站</h3>
+                    <p>这是我的个人博客，用于分享我的想法、经验和生活点滴。</p>
+                    <div class="social-links">
+                        <a href="#"><img src="images/icon-facebook.svg" alt="Facebook"></a>
+                        <a href="#"><img src="images/icon-twitter.svg" alt="Twitter"></a>
+                        <a href="#"><img src="images/icon-instagram.svg" alt="Instagram"></a>
+                        <a href="#"><img src="images/icon-linkedin.svg" alt="LinkedIn"></a>
+                        <a href="#"><img src="images/icon-wechat.svg" alt="WeChat"></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="posts.html">文章</a></li>
+                        <li><a href="about.html">关于我</a></li>
+                        <li><a href="contact.html">联系方式</a></li>
+                        <li><a href="privacy.html">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>联系我</h3>
+                    <p><span>邮箱:</span> example@myblog.com</p>
+                    <p><span>微信:</span> myblog_wechat</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 我的博客. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
